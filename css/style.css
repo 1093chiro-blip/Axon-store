@@ -54,13 +54,11 @@ p{ margin:0; }
   background:linear-gradient(to bottom, rgba(8,8,8,.85), rgba(8,8,8,0));
 }
 
-.brand-mark{
-  font-family:var(--serif);
-  font-size:1.4rem;
-  letter-spacing:.06em;
-}
+.brand-mark{ display:flex; align-items:center; color:var(--fg); }
 
-.oslash{ font-style:italic; }
+.wordmark{ display:block; width:auto; color:var(--fg); }
+.wordmark-nav{ height:26px; }
+.wordmark-footer{ height:22px; }
 
 .main-nav{
   display:none;
@@ -168,11 +166,8 @@ p{ margin:0; }
   color:var(--muted); margin-bottom:1.6rem;
 }
 
-.hero-logo{
-  font-size:clamp(4rem, 16vw, 9rem);
-  letter-spacing:.02em;
-  line-height:.9;
-}
+.hero-logo{ margin:0; display:flex; justify-content:center; }
+.wordmark-hero{ height:clamp(6rem, 20vw, 12.5rem); }
 
 .hero-reading{
   margin-top:.6rem;
@@ -362,7 +357,11 @@ p{ margin:0; }
   display:flex; flex-direction:column; gap:.6rem;
   text-align:center;
 }
-.footer-brand{ font-family:var(--serif); font-size:1.1rem; letter-spacing:.03em; }
+.footer-brand{
+  display:flex; align-items:center; justify-content:center; gap:.6rem;
+  font-family:var(--serif); font-size:1.1rem; letter-spacing:.03em;
+}
+@media(min-width:640px){ .footer-brand{ justify-content:flex-start; } }
 .footer-copy{ font-size:.68rem; color:var(--muted); letter-spacing:.08em; }
 
 @media(min-width:640px){
