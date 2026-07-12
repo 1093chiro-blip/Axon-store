@@ -7,7 +7,7 @@
   --fg:#F0ECE4;
   --line: rgba(240,236,228,.22);
   --line-strong: rgba(240,236,228,.55);
-  --muted: rgba(240,236,228,.55);
+  --muted: rgba(240,236,228,.62);
   --serif: 'Cormorant Garamond', serif;
   --mono: 'Space Mono', monospace;
   --gap: clamp(1.5rem, 5vw, 4rem);
@@ -387,4 +387,33 @@ p{ margin:0; }
     flex-direction:row; align-items:center; justify-content:space-between;
     text-align:left;
   }
+}
+
+/* ===== MOBILE LEGIBILITY PASS ===== */
+@media(max-width:640px){
+  :root{ --muted: rgba(240,236,228,.72); }
+
+  body{ font-size:16px; }
+
+  .eyebrow{ font-size:.72rem; }
+  .hero-sub{ font-size:.85rem; line-height:1.6; }
+  .tagline{ font-size:1.3rem; }
+
+  .section-num{ font-size:.78rem; }
+  .section-intro, .concept-sub{ font-size:.92rem; line-height:1.8; }
+  .concept-origin{ font-size:1rem; }
+
+  .letter-words{ font-size:.85rem; }
+  .letter-desc{ font-size:.8rem; line-height:1.7; }
+
+  .look-caption{ font-size:.75rem; }
+  .look-note{ font-size:.72rem; letter-spacing:.15em; }
+
+  .line-block p{ font-size:.85rem; line-height:1.8; }
+  .soon-tag{ font-size:.65rem; }
+
+  .sns-link{ font-size:.92rem; }
+
+  .footer-copy{ font-size:.75rem; }
+  .scroll-label{ font-size:.65rem; }
 }
