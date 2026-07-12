@@ -280,8 +280,15 @@ p{ margin:0; }
   .letter-grid{ grid-template-columns:repeat(4,1fr); }
 }
 
-.concept-origin{
+.concept-arc{
   margin-top:3rem;
+  font-family:var(--serif); font-style:italic;
+  font-size:clamp(1.1rem,2.4vw,1.5rem);
+  letter-spacing:.02em;
+}
+
+.concept-origin{
+  margin-top:1.2rem;
   font-family:var(--serif); font-style:italic;
   font-size:1.05rem; color:var(--muted);
 }
