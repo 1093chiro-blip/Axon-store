@@ -225,7 +225,7 @@ p{ margin:0; }
   letter-spacing:.02em;
 }
 
-.section-intro, .concept-lead, .concept-sub{
+.section-intro, .concept-sub{
   max-width:640px;
 }
 
@@ -240,8 +240,12 @@ p{ margin:0; }
 
 /* ===== CONCEPT ===== */
 .concept-lead{
-  font-family:var(--serif); font-size:clamp(1.2rem,2.6vw,1.6rem);
+  font-family:var(--serif); font-size:clamp(1rem,2.4vw,1.6rem);
   line-height:1.6; font-weight:400;
+  white-space:nowrap;
+}
+@media(max-width:640px){
+  .concept-lead{ white-space:normal; }
 }
 .concept-mantra{
   margin-top:1.2rem;
