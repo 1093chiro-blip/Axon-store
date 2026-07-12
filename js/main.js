@@ -34,7 +34,7 @@
     });
   });
 
-  var revealTargets = document.querySelectorAll('.section, .look-item');
+  var revealTargets = document.querySelectorAll('.section, .look-item, .concept-fragments');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(
       function (entries) {

@@ -225,20 +225,25 @@ p{ margin:0; }
   letter-spacing:.02em;
 }
 
-.section-intro, .concept-sub{
+.section-intro{
   max-width:640px;
 }
 
 /* scroll reveal */
-.section, .look-item{
+.section, .look-item, .concept-fragments{
   opacity:0; transform:translateY(24px);
   transition:opacity .8s ease, transform .8s ease;
 }
-.section.in-view, .look-item.in-view{
+.section.in-view, .look-item.in-view, .concept-fragments.in-view{
   opacity:1; transform:translateY(0);
 }
 
-/* ===== CONCEPT ===== */
+/* ===== CONCEPT FRAGMENTS — no header, no border, reads as hero whitespace ===== */
+.concept-fragments{
+  padding: clamp(2rem,6vw,4rem) var(--gap) clamp(5rem,10vw,8rem);
+  position:relative;
+}
+
 .concept-lead{
   font-family:var(--serif); font-size:clamp(1rem,2.4vw,1.6rem);
   line-height:1.6; font-weight:400;
@@ -254,45 +259,33 @@ p{ margin:0; }
   letter-spacing:.04em;
 }
 
-.concept-sub{
-  margin-top:1.4rem;
-  font-size:.85rem; color:var(--muted); line-height:1.9;
-}
-
 .letter-grid{
   margin-top:3.5rem;
   display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
   background:var(--line);
   border:1px solid var(--line);
+  max-width:640px;
 }
 
 .letter-card{
   background:var(--bg);
-  padding:2.2rem 1.6rem;
-  display:flex; flex-direction:column; gap:.7rem;
+  padding:1.8rem 1.6rem;
+  display:flex; flex-direction:column; gap:.5rem;
 }
 
 .letter-glyph{
-  font-family:var(--serif); font-size:3rem; line-height:1;
+  font-family:var(--serif); font-size:2.6rem; line-height:1;
 }
 .oslash-glyph{ font-style:italic; }
 
-.letter-words{ font-size:.78rem; letter-spacing:.05em; }
-.letter-desc{ font-size:.72rem; color:var(--muted); line-height:1.6; }
+.letter-words{ font-size:.78rem; letter-spacing:.05em; color:var(--muted); }
 
 @media(min-width:640px){
   .letter-grid{ grid-template-columns:repeat(4,1fr); }
 }
 
-.concept-arc{
-  margin-top:3rem;
-  font-family:var(--serif); font-style:italic;
-  font-size:clamp(1.1rem,2.4vw,1.5rem);
-  letter-spacing:.02em;
-}
-
 .concept-origin{
-  margin-top:1.2rem;
+  margin-top:3rem;
   font-family:var(--serif); font-style:italic;
   font-size:1.05rem; color:var(--muted);
 }
@@ -400,11 +393,10 @@ p{ margin:0; }
   .tagline{ font-size:1.3rem; }
 
   .section-num{ font-size:.78rem; }
-  .section-intro, .concept-sub{ font-size:.92rem; line-height:1.8; }
+  .section-intro{ font-size:.92rem; line-height:1.8; }
   .concept-origin{ font-size:1rem; }
 
   .letter-words{ font-size:.85rem; }
-  .letter-desc{ font-size:.8rem; line-height:1.7; }
 
   .look-caption{ font-size:.75rem; }
   .look-note{ font-size:.72rem; letter-spacing:.15em; }
