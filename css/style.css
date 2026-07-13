@@ -350,6 +350,39 @@ p{ margin:0; }
 }
 .now-tag{ color:var(--fg); border-color:var(--fg); }
 
+/* ===== EARLY ACCESS ===== */
+.access-form{
+  margin-top:2.5rem;
+  display:flex; flex-wrap:wrap; gap:1px;
+  background:var(--line); border:1px solid var(--line);
+  max-width:520px;
+}
+.access-input{
+  flex:1 1 260px;
+  background:var(--bg); border:none; color:var(--fg);
+  font-family:var(--mono); font-size:.85rem;
+  padding:1rem 1.2rem;
+}
+.access-input::placeholder{ color:var(--muted); }
+.access-input:focus{ outline:1px solid var(--line-strong); outline-offset:-1px; }
+
+.access-submit{
+  flex:0 0 auto;
+  background:var(--fg); color:var(--bg); border:none;
+  font-family:var(--mono); font-size:.75rem; letter-spacing:.15em; text-transform:uppercase;
+  padding:1rem 1.6rem; cursor:pointer;
+  transition:opacity .25s;
+}
+.access-submit:hover{ opacity:.8; }
+
+.access-status{
+  margin-top:1rem; font-size:.78rem; color:var(--muted); min-height:1.2em;
+}
+
+.access-note{
+  margin-top:1.4rem; font-size:.72rem; color:var(--muted); letter-spacing:.02em;
+}
+
 /* ===== CONNECT ===== */
 .sns-grid{
   margin-top:2.5rem;
@@ -406,6 +439,10 @@ p{ margin:0; }
 
   .line-block p{ font-size:.85rem; line-height:1.8; }
   .soon-tag{ font-size:.65rem; }
+
+  .access-input{ font-size:.92rem; }
+  .access-status{ font-size:.85rem; }
+  .access-note{ font-size:.8rem; }
 
   .sns-link{ font-size:.92rem; }
 

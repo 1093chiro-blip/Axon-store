@@ -34,6 +34,44 @@
     });
   });
 
+  var accessForm = document.getElementById('accessForm');
+  var accessStatus = document.getElementById('accessStatus');
+  if (accessForm) {
+    accessForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var isEn = body.classList.contains('lang-en');
+      var submitBtn = accessForm.querySelector('.access-submit');
+      submitBtn.disabled = true;
+      accessStatus.textContent = isEn ? 'Sending…' : '送信中…';
+
+      fetch(accessForm.action, {
+        method: 'POST',
+        body: new FormData(accessForm),
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            accessStatus.textContent = isEn
+              ? 'You’re in. Watch your inbox.'
+              : '登録しました。案内をお待ちください。';
+            accessForm.reset();
+          } else {
+            accessStatus.textContent = isEn
+              ? 'Something went wrong. Please try again.'
+              : '送信に失敗しました。もう一度お試しください。';
+          }
+        })
+        .catch(function () {
+          accessStatus.textContent = isEn
+            ? 'Something went wrong. Please try again.'
+            : '送信に失敗しました。もう一度お試しください。';
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+        });
+    });
+  }
+
   var revealTargets = document.querySelectorAll('.section, .look-item, .concept-fragments');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(
