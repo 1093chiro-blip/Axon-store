@@ -259,29 +259,10 @@ p{ margin:0; }
   letter-spacing:.04em;
 }
 
-.letter-grid{
-  margin-top:3.5rem;
-  display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  max-width:640px;
-}
-
-.letter-card{
-  background:var(--bg);
-  padding:1.8rem 1.6rem;
-  display:flex; flex-direction:column; gap:.5rem;
-}
-
-.letter-glyph{
-  font-family:var(--serif); font-size:2.6rem; line-height:1;
-}
-.oslash-glyph{ font-style:italic; }
-
-.letter-words{ font-size:.78rem; letter-spacing:.05em; color:var(--muted); }
-
-@media(min-width:640px){
-  .letter-grid{ grid-template-columns:repeat(4,1fr); }
+.concept-letters{
+  margin-top:2.4rem;
+  font-family:var(--mono); font-size:.85rem;
+  letter-spacing:.35em; color:var(--muted);
 }
 
 .concept-origin{
@@ -395,8 +376,7 @@ p{ margin:0; }
   .section-num{ font-size:.78rem; }
   .section-intro{ font-size:.92rem; line-height:1.8; }
   .concept-origin{ font-size:1rem; }
-
-  .letter-words{ font-size:.85rem; }
+  .concept-letters{ font-size:.75rem; letter-spacing:.25em; }
 
   .look-caption{ font-size:.75rem; }
   .look-note{ font-size:.72rem; letter-spacing:.15em; }
