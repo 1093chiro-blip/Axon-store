@@ -134,7 +134,7 @@ p{ margin:0; }
   stroke-dasharray:900;
   stroke-dashoffset:900;
   animation:draw 3.2s ease forwards, signal 1s ease-out, pulse 5s ease-in-out infinite;
-  opacity:.55;
+  opacity:0;
 }
 .n-path:nth-child(1){ animation-delay:0s, 3.2s, 4.2s; }
 .n-path:nth-child(2){ animation-delay:.15s, 3.35s, 4.35s; }
@@ -152,7 +152,11 @@ p{ margin:0; }
   animation-delay:2.4s;
 }
 
-@keyframes draw{ to{ stroke-dashoffset:0; } }
+@keyframes draw{
+  0%{ opacity:0; }
+  15%{ opacity:.65; }
+  100%{ stroke-dashoffset:0; opacity:.55; }
+}
 @keyframes fadeInNode{ to{ opacity:.8; } }
 @keyframes signal{
   0%{ opacity:.55; }
