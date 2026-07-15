@@ -286,15 +286,30 @@ p{ margin:0; }
   font-size:1.05rem; color:var(--muted);
 }
 
-.concept-kicker{
-  margin-top:3rem;
-  font-family:var(--mono); font-size:.68rem;
-  letter-spacing:.2em; color:var(--muted);
+.manifesto{
+  margin-top:4rem;
+  max-width:640px;
+  display:flex; flex-direction:column; gap:1.6rem;
 }
-.concept-attraction{
-  margin-top:.9rem;
-  font-family:var(--serif); font-size:clamp(1rem,2vw,1.25rem);
-  line-height:1.8; max-width:640px;
+.manifesto p{
+  font-family:var(--serif); font-size:clamp(1.05rem,2vw,1.3rem);
+  line-height:1.9; color:var(--muted);
+}
+.manifesto-epigraph{
+  font-style:italic; color:var(--fg) !important;
+  font-size:clamp(1.2rem,2.6vw,1.6rem) !important;
+  margin-bottom:.4rem;
+}
+.manifesto-statement{
+  color:var(--fg) !important;
+  font-size:clamp(1.2rem,2.4vw,1.5rem) !important;
+}
+.manifesto-mantra{
+  margin-top:1rem;
+  font-family:var(--mono) !important;
+  font-size:.85rem !important;
+  letter-spacing:.06em; line-height:2 !important;
+  color:var(--fg) !important;
 }
 
 /* ===== LOOKBOOK ===== */
@@ -443,8 +458,10 @@ p{ margin:0; }
   .section-num{ font-size:.78rem; }
   .section-intro{ font-size:.92rem; line-height:1.8; }
   .concept-origin{ font-size:1rem; }
-  .concept-kicker{ font-size:.65rem; letter-spacing:.15em; }
-  .concept-attraction{ font-size:1rem; line-height:1.75; }
+  .manifesto p{ font-size:1.05rem; line-height:1.8; }
+  .manifesto-epigraph{ font-size:1.3rem !important; }
+  .manifesto-statement{ font-size:1.2rem !important; }
+  .manifesto-mantra{ font-size:.85rem !important; }
   .concept-letters{ font-size:.75rem; letter-spacing:.25em; }
 
   .look-caption{ font-size:.75rem; }
