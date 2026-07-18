@@ -4,7 +4,7 @@
   var gate = document.getElementById('gate');
   var gateYes = document.getElementById('gateYes');
   var gateNo = document.getElementById('gateNo');
-  var gateWhisper = document.getElementById('gateWhisper');
+  var gateQuestion = document.getElementById('gateQuestion');
 
   function openGate() {
     body.classList.add('gate-opened');
@@ -13,10 +13,9 @@
 
   gateYes.addEventListener('click', openGate);
   gateNo.addEventListener('click', function () {
-    gateYes.disabled = true;
-    gateNo.disabled = true;
-    gateWhisper.classList.add('show');
-    setTimeout(openGate, 2200);
+    gateQuestion.classList.remove('reask');
+    void gateQuestion.offsetWidth;
+    gateQuestion.classList.add('reask');
   });
 
   var langToggle = document.getElementById('langToggle');
