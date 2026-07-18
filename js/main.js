@@ -1,5 +1,24 @@
 (function () {
   var body = document.body;
+
+  var gate = document.getElementById('gate');
+  var gateYes = document.getElementById('gateYes');
+  var gateNo = document.getElementById('gateNo');
+  var gateWhisper = document.getElementById('gateWhisper');
+
+  function openGate() {
+    body.classList.add('gate-opened');
+    gate.classList.add('gate-hidden');
+  }
+
+  gateYes.addEventListener('click', openGate);
+  gateNo.addEventListener('click', function () {
+    gateYes.disabled = true;
+    gateNo.disabled = true;
+    gateWhisper.classList.add('show');
+    setTimeout(openGate, 2200);
+  });
+
   var langToggle = document.getElementById('langToggle');
   var navToggle = document.getElementById('navToggle');
   var mainNav = document.getElementById('mainNav');
