@@ -4,7 +4,7 @@
   var ctx = canvas.getContext('2d');
 
   var VB_W = 720, VB_H = 260;
-  var STROKE_W = 3.2;
+  var STROKE_W = 8;
 
   var pathData = [
     'M120,34 L48,230',
@@ -69,14 +69,13 @@
       tx: t[0], ty: t[1],
       sx: t[0] + Math.cos(angle) * dist,
       sy: t[1] + Math.sin(angle) * dist,
-      delay: Math.random() * 1.0,
-      dur: 2.2 + Math.random() * 1.8,
-      r: 0.55 + Math.random() * 0.55,
+      delay: Math.random() * 0.3,
+      decay: 0.85 + Math.random() * 0.45,
+      freq: 3.2 + Math.random() * 1.4,
+      r: 1.4 + Math.random() * 1.4,
       seed: Math.random() * 1000
     };
   });
-
-  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
   function syncCanvasSize() {
@@ -104,22 +103,18 @@
     ctx.fillStyle = particleColor;
 
     particles.forEach(function (p) {
-      var t = (elapsed - p.delay) / p.dur;
+      var t = elapsed - p.delay;
       if (t < 0) t = 0;
-      if (t > 1) t = 1;
-      var e = easeOutCubic(t);
 
-      var px, py, alpha;
-      if (t >= 1) {
-        px = p.tx + Math.sin(elapsed * 1.6 + p.seed) * 0.4;
-        py = p.ty + Math.cos(elapsed * 1.4 + p.seed) * 0.4;
-        alpha = 0.85 + Math.sin(elapsed * 1.2 + p.seed) * 0.15;
-      } else {
-        var jitter = (1 - e);
-        px = p.sx + (p.tx - p.sx) * e + Math.sin(elapsed * 5 + p.seed) * jitter * 3;
-        py = p.sy + (p.ty - p.sy) * e + Math.cos(elapsed * 4 + p.seed) * jitter * 3;
-        alpha = 0.3 + e * 0.7;
-      }
+      // damped oscillator: swings toward/past the target, losing amplitude,
+      // so particles gather and scatter a few times before settling (~3-5s).
+      var wave = Math.exp(-p.decay * t) * Math.cos(p.freq * t);
+      var settledness = 1 - Math.min(Math.abs(wave), 1);
+
+      var shimmer = 0.4;
+      var px = p.tx + (p.sx - p.tx) * wave + Math.sin(elapsed * 1.6 + p.seed) * shimmer;
+      var py = p.ty + (p.sy - p.ty) * wave + Math.cos(elapsed * 1.4 + p.seed) * shimmer;
+      var alpha = 0.22 + settledness * 0.78;
 
       ctx.globalAlpha = alpha;
       ctx.beginPath();
