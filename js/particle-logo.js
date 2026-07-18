@@ -69,8 +69,8 @@
       tx: t[0], ty: t[1],
       sx: t[0] + Math.cos(angle) * dist,
       sy: t[1] + Math.sin(angle) * dist,
-      delay: Math.random() * 0.5,
-      dur: 1.2 + Math.random() * 1.1,
+      delay: Math.random() * 1.0,
+      dur: 2.2 + Math.random() * 1.8,
       r: 0.55 + Math.random() * 0.55,
       seed: Math.random() * 1000
     };
