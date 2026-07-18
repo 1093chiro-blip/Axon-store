@@ -9,6 +9,7 @@
   function openGate() {
     body.classList.add('gate-opened');
     gate.classList.add('gate-hidden');
+    if (window.axonStartLogoParticles) window.axonStartLogoParticles();
   }
 
   gateYes.addEventListener('click', openGate);
