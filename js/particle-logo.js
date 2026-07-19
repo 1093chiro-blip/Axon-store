@@ -64,18 +64,23 @@
 
   var particles = targets.map(function (t) {
     var angle = Math.random() * Math.PI * 2;
-    var dist = 220 + Math.random() * 260;
+    var dist = 200 + Math.random() * 260;
     return {
       tx: t[0], ty: t[1],
       sx: t[0] + Math.cos(angle) * dist,
       sy: t[1] + Math.sin(angle) * dist,
-      delay: Math.random() * 0.3,
-      decay: 0.85 + Math.random() * 0.45,
-      freq: 3.2 + Math.random() * 1.4,
+      totalDur: 5.0 + Math.random() * 1.2,
+      holdFrac: 0.55 + Math.random() * 0.25,
+      f1: 0.5 + Math.random() * 0.7, ph1: Math.random() * Math.PI * 2, a1: 40 + Math.random() * 50,
+      f2: 1.1 + Math.random() * 1.3, ph2: Math.random() * Math.PI * 2, a2: 15 + Math.random() * 25,
       r: 1.4 + Math.random() * 1.4,
       seed: Math.random() * 1000
     };
   });
+
+  function easeInOutCubic(x) {
+    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  }
 
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
   function syncCanvasSize() {
@@ -103,18 +108,30 @@
     ctx.fillStyle = particleColor;
 
     particles.forEach(function (p) {
-      var t = elapsed - p.delay;
-      if (t < 0) t = 0;
+      var t = elapsed;
 
-      // damped oscillator: swings toward/past the target, losing amplitude,
-      // so particles gather and scatter a few times before settling (~3-5s).
-      var wave = Math.exp(-p.decay * t) * Math.cos(p.freq * t);
-      var settledness = 1 - Math.min(Math.abs(wave), 1);
+      // envelope: stays fully "free" through the hold phase, then eases
+      // down to 0 in the remaining time, so particles roam haphazardly
+      // before snapping into the AXOn shape at the very end (~5-6s total).
+      var holdEnd = p.totalDur * p.holdFrac;
+      var env;
+      if (t <= holdEnd) {
+        env = 1;
+      } else {
+        var prog = (t - holdEnd) / (p.totalDur - holdEnd);
+        if (prog > 1) prog = 1;
+        env = 1 - easeInOutCubic(prog);
+      }
 
-      var shimmer = 0.4;
-      var px = p.tx + (p.sx - p.tx) * wave + Math.sin(elapsed * 1.6 + p.seed) * shimmer;
-      var py = p.ty + (p.sy - p.ty) * wave + Math.cos(elapsed * 1.4 + p.seed) * shimmer;
-      var alpha = 0.22 + settledness * 0.78;
+      // chaotic wander: layered sine waves (not a single clean oscillation)
+      // for an unpredictable, organic drift rather than back-and-forth pulsing.
+      var wanderX = Math.sin(t * p.f1 + p.ph1) * p.a1 + Math.sin(t * p.f2 + p.ph2) * p.a2;
+      var wanderY = Math.cos(t * p.f1 * 0.9 + p.ph1) * p.a1 + Math.cos(t * p.f2 * 1.1 + p.ph2) * p.a2;
+
+      var shimmer = env < 0.05 ? 0.4 : 0;
+      var px = p.tx + (p.sx - p.tx) * env + wanderX * env + Math.sin(elapsed * 1.6 + p.seed) * shimmer;
+      var py = p.ty + (p.sy - p.ty) * env + wanderY * env + Math.cos(elapsed * 1.4 + p.seed) * shimmer;
+      var alpha = 0.25 + (1 - env) * 0.75;
 
       ctx.globalAlpha = alpha;
       ctx.beginPath();
