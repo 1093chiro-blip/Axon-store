@@ -91,7 +91,7 @@
     });
   }
 
-  var revealTargets = document.querySelectorAll('.section, .look-item, .concept-fragments');
+  var revealTargets = document.querySelectorAll('.section, .track, .concept-fragments');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(
       function (entries) {
