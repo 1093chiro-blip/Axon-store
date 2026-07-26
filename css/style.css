@@ -388,6 +388,9 @@ body.gate-opened .n-node{ animation-play-state:running; }
 
 .album{ max-width:640px; }
 
+.album-disc > summary{ cursor:pointer; list-style:none; }
+.album-disc > summary::-webkit-details-marker{ display:none; }
+
 .album-cover{
   position:relative; aspect-ratio:16/9; overflow:hidden;
   display:flex; flex-direction:column; justify-content:flex-end;
@@ -410,6 +413,19 @@ body.gate-opened .n-node{ animation-play-state:running; }
   font-family:var(--mono); font-size:.68rem; letter-spacing:.15em;
   text-transform:uppercase; color:var(--muted);
 }
+.album-hint{
+  position:relative; margin-top:1rem;
+  display:flex; align-items:center; gap:.4rem;
+}
+.album-hint span[data-ja]{
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted);
+}
+.album-hint-arrow{
+  color:var(--muted); font-size:.7rem;
+  transition:transform .3s ease;
+}
+.album-disc[open] .album-hint-arrow{ transform:rotate(180deg); }
 
 .tracklist{
   list-style:none; border-top:1px solid var(--line);
