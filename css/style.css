@@ -167,51 +167,13 @@ p{ margin:0; }
   overflow:hidden;
 }
 
-.nerve-bg{
+.hero-bg-video{
   position:absolute; inset:0; width:100%; height:100%;
-  opacity:.5;
+  object-fit:cover; opacity:.55;
 }
-
-.n-path{
-  stroke-dasharray:900;
-  stroke-dashoffset:900;
-  animation:draw 3.2s ease forwards, signal 1s ease-out, pulse 5s ease-in-out infinite;
-  animation-play-state:paused;
-  opacity:0;
-}
-body.gate-opened .n-path{ animation-play-state:running; }
-.n-path:nth-child(1){ animation-delay:0s, 3.2s, 4.2s; }
-.n-path:nth-child(2){ animation-delay:.15s, 3.35s, 4.35s; }
-.n-path:nth-child(3){ animation-delay:.3s, 3.5s, 4.5s; }
-.n-path:nth-child(4){ animation-delay:.45s, 3.65s, 4.65s; }
-.n-path:nth-child(5){ animation-delay:.6s, 3.8s, 4.8s; }
-.n-path:nth-child(6){ animation-delay:.75s, 3.95s, 4.95s; }
-.n-path:nth-child(7){ animation-delay:.9s, 4.1s, 5.1s; }
-.n-path:nth-child(8){ animation-delay:1.05s, 4.25s, 5.25s; }
-.n-path:nth-child(9){ animation-delay:1.2s, 4.4s, 5.4s; }
-
-.n-node{
-  opacity:0;
-  animation:fadeInNode .8s ease forwards;
-  animation-delay:2.4s;
-  animation-play-state:paused;
-}
-body.gate-opened .n-node{ animation-play-state:running; }
-
-@keyframes draw{
-  0%{ opacity:0; }
-  15%{ opacity:.65; }
-  100%{ stroke-dashoffset:0; opacity:.55; }
-}
-@keyframes fadeInNode{ to{ opacity:.8; } }
-@keyframes signal{
-  0%{ opacity:.55; }
-  30%{ opacity:1; }
-  100%{ opacity:.55; }
-}
-@keyframes pulse{
-  0%,100%{ opacity:.35; }
-  50%{ opacity:.7; }
+.hero-bg-scrim{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(8,8,8,.3) 0%, rgba(8,8,8,.75) 65%, var(--bg) 100%);
 }
 
 .hero-inner{ position:relative; z-index:1; }
