@@ -169,7 +169,7 @@ p{ margin:0; }
 
 .hero-bg-video{
   position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; opacity:.55;
+  object-fit:contain; opacity:.55;
 }
 .hero-bg-scrim{
   position:absolute; inset:0;
