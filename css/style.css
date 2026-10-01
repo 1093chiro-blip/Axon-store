@@ -111,6 +111,12 @@ p{ margin:0; }
 }
 .main-nav a:hover{ opacity:1; }
 
+.nav-shop-link{
+  opacity:1 !important; color:var(--fg);
+  border:1px solid var(--line); padding:.3rem .8rem;
+}
+.nav-shop-link:hover{ background:var(--fg); color:var(--bg); }
+
 .header-actions{ display:flex; align-items:center; gap:1.1rem; }
 
 .lang-toggle{
@@ -518,6 +524,15 @@ body.gate-opened .n-node{ animation-play-state:running; }
   font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
   text-align:center;
 }
+
+.shop-cta{
+  display:block; width:fit-content; margin:1.4rem auto 0;
+  padding:.8rem 2.2rem; border:1px solid var(--fg);
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--fg); text-align:center;
+  transition:background .25s, color .25s;
+}
+.shop-cta:hover{ background:var(--fg); color:var(--bg); }
 
 /* ===== STORY ===== */
 .mark-stamp{
