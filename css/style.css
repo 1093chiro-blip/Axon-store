@@ -256,6 +256,9 @@ p{ margin:0; }
   flex:1 1 320px; max-width:720px;
   border:1px solid var(--line);
 }
+.create-video-wrap--portrait{
+  flex:0 1 220px; max-width:260px;
+}
 .create-video{
   display:block; width:100%;
   object-fit:contain; background:#000;
