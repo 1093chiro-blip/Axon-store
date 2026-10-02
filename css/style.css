@@ -256,6 +256,15 @@ p{ margin:0; }
   max-width:640px;
 }
 
+.create-video-wrap{
+  max-width:720px;
+  border:1px solid var(--line);
+}
+.create-video{
+  display:block; width:100%; aspect-ratio:816/616;
+  object-fit:contain; background:#000;
+}
+
 /* scroll reveal */
 .section, .track, .concept-fragments{
   opacity:0; transform:translateY(24px);
