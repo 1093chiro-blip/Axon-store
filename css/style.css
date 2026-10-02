@@ -183,13 +183,6 @@ p{ margin:0; }
   color:var(--muted); margin-bottom:1.6rem;
 }
 
-.hero-logo{ margin:0; display:flex; justify-content:center; }
-.wordmark-hero{ height:clamp(6rem, 20vw, 12.5rem); }
-.wordmark-hero-canvas{
-  display:block; height:clamp(6rem, 20vw, 12.5rem); width:auto;
-  aspect-ratio:720/260; margin:0 auto;
-}
-
 .hero-reading{
   margin-top:.6rem;
   font-size:.75rem; letter-spacing:.4em; text-transform:uppercase;
