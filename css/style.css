@@ -256,12 +256,15 @@ p{ margin:0; }
   max-width:640px;
 }
 
+.create-video-grid{
+  display:flex; flex-wrap:wrap; gap:1.5rem;
+}
 .create-video-wrap{
-  max-width:720px;
+  flex:1 1 320px; max-width:720px;
   border:1px solid var(--line);
 }
 .create-video{
-  display:block; width:100%; aspect-ratio:816/616;
+  display:block; width:100%;
   object-fit:contain; background:#000;
 }
 
