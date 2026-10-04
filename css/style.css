@@ -153,11 +153,11 @@ p{ margin:0; }
 
 .hero-bg-video{
   position:absolute; inset:0; width:100%; height:100%;
-  object-fit:contain; opacity:.55;
+  object-fit:contain; opacity:1;
 }
 .hero-bg-scrim{
   position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(8,8,8,.3) 0%, rgba(8,8,8,.75) 65%, var(--bg) 100%);
+  background:linear-gradient(180deg, rgba(8,8,8,.1) 0%, rgba(8,8,8,.35) 65%, rgba(8,8,8,.75) 100%);
 }
 
 .hero-inner{ position:relative; z-index:1; }
