@@ -10,14 +10,6 @@
     gateOpened = true;
     body.classList.add('gate-opened');
     gate.classList.add('gate-hidden');
-    forcePlayVideos();
-  }
-
-  function forcePlayVideos() {
-    document.querySelectorAll('video[autoplay]').forEach(function (v) {
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});
-    });
   }
 
   gateVideo.addEventListener('ended', openGate);
@@ -36,7 +28,7 @@
     body.classList.toggle('lang-en', lang === 'en');
   }
 
-  var savedLang = localStorage.getItem('axon-lang') === 'ja' ? 'ja' : 'en';
+  var savedLang = localStorage.getItem('axon-lang') === 'en' ? 'en' : 'ja';
   applyLang(savedLang);
 
   langToggle.addEventListener('click', function () {
