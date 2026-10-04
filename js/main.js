@@ -2,22 +2,18 @@
   var body = document.body;
 
   var gate = document.getElementById('gate');
-  var gateYes = document.getElementById('gateYes');
-  var gateNo = document.getElementById('gateNo');
-  var gateQuestion = document.getElementById('gateQuestion');
+  var gateVideo = document.getElementById('gateVideo');
+  var gateOpened = false;
 
   function openGate() {
+    if (gateOpened) return;
+    gateOpened = true;
     body.classList.add('gate-opened');
     gate.classList.add('gate-hidden');
-    if (window.axonStartLogoParticles) window.axonStartLogoParticles();
   }
 
-  gateYes.addEventListener('click', openGate);
-  gateNo.addEventListener('click', function () {
-    gateQuestion.classList.remove('reask');
-    void gateQuestion.offsetWidth;
-    gateQuestion.classList.add('reask');
-  });
+  gateVideo.addEventListener('ended', openGate);
+  gate.addEventListener('click', openGate);
 
   var langToggle = document.getElementById('langToggle');
   var navToggle = document.getElementById('navToggle');

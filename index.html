@@ -22,11 +22,9 @@
 <body>
 
 <div class="gate" id="gate">
-  <p class="gate-question" id="gateQuestion">Are you ready?</p>
-  <div class="gate-actions">
-    <button type="button" class="gate-btn" id="gateYes">Yes</button>
-    <button type="button" class="gate-btn gate-btn-ghost" id="gateNo">No</button>
-  </div>
+  <video class="gate-video" id="gateVideo" autoplay muted playsinline>
+    <source src="assets/video/gate-loading.mp4" type="video/mp4">
+  </video>
 </div>
 
 <div class="noise-overlay" aria-hidden="true"></div>
