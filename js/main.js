@@ -10,6 +10,14 @@
     gateOpened = true;
     body.classList.add('gate-opened');
     gate.classList.add('gate-hidden');
+    forcePlayVideos();
+  }
+
+  function forcePlayVideos() {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    });
   }
 
   gateVideo.addEventListener('ended', openGate);
