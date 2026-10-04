@@ -45,6 +45,10 @@ a{ color:inherit; text-decoration:none; }
   object-fit:cover;
   cursor:pointer;
 }
+.gate-video::-webkit-media-controls,
+.hero-bg-video::-webkit-media-controls{
+  display:none !important;
+}
 
 h1,h2,h3{
   font-family:var(--serif);
