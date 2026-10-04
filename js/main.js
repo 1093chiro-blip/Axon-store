@@ -87,7 +87,7 @@
     });
   }
 
-  var revealTargets = document.querySelectorAll('.section, .track, .story-step, .story-mantra, .story-finale');
+  var revealTargets = document.querySelectorAll('.section, .track, .concept-fragments, .story-step, .story-finale');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(
       function (entries) {
