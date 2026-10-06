@@ -12,6 +12,7 @@
   var codeIntro = document.getElementById('codeIntro');
   var codeIntroBlock = document.getElementById('codeIntroBlock');
   var codeIntroDone = false;
+  var gateVideo = document.getElementById('gateVideo');
 
   var codeIntroHiddenAt = 0;
 
@@ -21,6 +22,11 @@
     codeIntroHiddenAt = Date.now();
     codeIntro.classList.add('code-intro-hidden');
     forcePlayVideos();
+    // gate-video has no autoplay attribute (so it can't finish playing
+    // in the background while hidden behind the code intro) - start it
+    // explicitly now that it's actually visible
+    var p = gateVideo.play();
+    if (p && p.catch) p.catch(function () {});
   }
 
   codeIntro.addEventListener('click', hideCodeIntro);
@@ -105,7 +111,6 @@
   })();
 
   var gate = document.getElementById('gate');
-  var gateVideo = document.getElementById('gateVideo');
   var gateOpened = false;
 
   function openGate() {
