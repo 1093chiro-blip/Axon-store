@@ -289,6 +289,15 @@ p{ margin:0; }
   letter-spacing:.2em; text-transform:uppercase;
   color:var(--muted); margin-bottom:.6rem;
 }
+.story-eyebrow--entry{
+  font-size:clamp(1rem,2.6vw,1.3rem); font-weight:700;
+  color:var(--fg); opacity:1; letter-spacing:.15em;
+  margin-bottom:1rem;
+}
+.story-divider{
+  width:100%; max-width:200px; margin:1rem 0 0;
+  border:none; border-top:1px solid var(--line);
+}
 .story-label{
   font-family:var(--mono); font-size:clamp(1.1rem,3vw,1.5rem);
   letter-spacing:.08em; margin-bottom:1rem;
