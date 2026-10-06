@@ -283,7 +283,10 @@ p{ margin:0; }
   text-align:center; gap:2.4rem;
 }
 .story-step{ max-width:560px; }
-.story-step--video{ max-width:min(85vw, 680px); }
+.story-step--video{
+  max-width:min(85vw, 680px);
+  align-self:flex-start; text-align:left;
+}
 .story-eyebrow{
   font-family:var(--mono); font-size:.68rem;
   letter-spacing:.2em; text-transform:uppercase;
