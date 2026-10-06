@@ -22,7 +22,11 @@
 <body>
 
 <div class="code-intro" id="codeIntro" aria-hidden="true">
-  <pre class="code-intro-block"><span class="code-dim">.hero-bg-video{</span>
+  <pre class="code-intro-block"><span class="code-dim">$ axon --build</span>
+<span class="code-dim">&gt; connecting to neural-signal.axon.io...</span>
+<span class="code-add">&gt; handshake established ✓</span>
+
+<span class="code-dim">.hero-bg-video{</span>
 <span class="code-dim">  position:absolute; inset:0;</span>
 <span class="code-del">-  opacity:.55;</span>
 <span class="code-add">+  opacity:1;</span>
@@ -31,7 +35,27 @@
 <span class="code-dim">function openGate() {</span>
 <span class="code-dim">  body.classList.add('gate-opened');</span>
 <span class="code-add">+  forcePlayVideos();</span>
-<span class="code-dim">}</span></pre>
+<span class="code-dim">}</span>
+
+<span class="code-dim">class AXOn {</span>
+<span class="code-dim">  constructor(signal) {</span>
+<span class="code-dim">    this.signal = signal;</span>
+<span class="code-dim">    this.connections = [];</span>
+<span class="code-dim">  }</span>
+<span class="code-dim">  connect(node) {</span>
+<span class="code-dim">    this.connections.push(node);</span>
+<span class="code-add">+   console.log('[AXOn] connection established →', node.id);</span>
+<span class="code-dim">  }</span>
+<span class="code-dim">}</span>
+
+<span class="code-dim">const network = new AXOn('nerve-01');</span>
+<span class="code-add">+ network.connect({ id: 'CONNECT' });</span>
+<span class="code-add">+ network.connect({ id: 'REPEAT' });</span>
+<span class="code-add">+ network.connect({ id: 'ADAPT' });</span>
+<span class="code-add">+ network.connect({ id: 'BECOME' });</span>
+
+<span class="code-dim">&gt; transmitting signal... 100%</span>
+<span class="code-add">&gt; AXOn — recovery × identity.</span></pre>
 </div>
 
 <div class="gate" id="gate">
