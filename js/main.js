@@ -5,9 +5,12 @@
   var codeIntroBlock = document.getElementById('codeIntroBlock');
   var codeIntroDone = false;
 
+  var codeIntroHiddenAt = 0;
+
   function hideCodeIntro() {
     if (codeIntroDone) return;
     codeIntroDone = true;
+    codeIntroHiddenAt = Date.now();
     codeIntro.classList.add('code-intro-hidden');
   }
 
@@ -83,7 +86,7 @@
         seg.i += 1;
         seg.el.textContent = seg.text.slice(0, seg.i);
         seg.el.parentNode.insertBefore(cursor, seg.el.nextSibling);
-        setTimeout(tick, 5);
+        setTimeout(tick, 9);
       } else {
         segIndex += 1;
         tick();
@@ -104,7 +107,12 @@
   }
 
   gateVideo.addEventListener('ended', openGate);
-  gate.addEventListener('click', openGate);
+  gate.addEventListener('click', function () {
+    // ignore a tap that's really the tail end of the code-intro skip tap,
+    // so one tap can't fall through both overlays at once
+    if (Date.now() - codeIntroHiddenAt < 600) return;
+    openGate();
+  });
 
   var langToggle = document.getElementById('langToggle');
   var navToggle = document.getElementById('navToggle');
