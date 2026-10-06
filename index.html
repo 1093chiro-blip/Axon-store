@@ -21,6 +21,19 @@
 </head>
 <body>
 
+<div class="code-intro" id="codeIntro" aria-hidden="true">
+  <pre class="code-intro-block"><span class="code-dim">.hero-bg-video{</span>
+<span class="code-dim">  position:absolute; inset:0;</span>
+<span class="code-del">-  opacity:.55;</span>
+<span class="code-add">+  opacity:1;</span>
+<span class="code-dim">}</span>
+
+<span class="code-dim">function openGate() {</span>
+<span class="code-dim">  body.classList.add('gate-opened');</span>
+<span class="code-add">+  forcePlayVideos();</span>
+<span class="code-dim">}</span></pre>
+</div>
+
 <div class="gate" id="gate">
   <video class="gate-video" id="gateVideo" autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback>
     <source src="assets/video/gate-loading.mp4" type="video/mp4">

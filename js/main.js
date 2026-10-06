@@ -1,6 +1,18 @@
 (function () {
   var body = document.body;
 
+  var codeIntro = document.getElementById('codeIntro');
+  var codeIntroDone = false;
+
+  function hideCodeIntro() {
+    if (codeIntroDone) return;
+    codeIntroDone = true;
+    codeIntro.classList.add('code-intro-hidden');
+  }
+
+  codeIntro.addEventListener('click', hideCodeIntro);
+  setTimeout(hideCodeIntro, 3000);
+
   var gate = document.getElementById('gate');
   var gateVideo = document.getElementById('gateVideo');
   var gateOpened = false;
