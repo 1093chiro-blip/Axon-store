@@ -1,6 +1,14 @@
 (function () {
   var body = document.body;
 
+  function forcePlayVideos() {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    });
+  }
+  forcePlayVideos();
+
   var codeIntro = document.getElementById('codeIntro');
   var codeIntroBlock = document.getElementById('codeIntroBlock');
   var codeIntroDone = false;
@@ -12,6 +20,7 @@
     codeIntroDone = true;
     codeIntroHiddenAt = Date.now();
     codeIntro.classList.add('code-intro-hidden');
+    forcePlayVideos();
   }
 
   codeIntro.addEventListener('click', hideCodeIntro);
@@ -104,6 +113,7 @@
     gateOpened = true;
     body.classList.add('gate-opened');
     gate.classList.add('gate-hidden');
+    forcePlayVideos();
   }
 
   gateVideo.addEventListener('ended', openGate);
