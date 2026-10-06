@@ -283,11 +283,28 @@ p{ margin:0; }
   text-align:center; gap:2.4rem;
 }
 .story-step{ max-width:560px; }
+.story-step--video{ max-width:min(85vw, 680px); }
+.story-eyebrow{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:.6rem;
+}
 .story-label{
   font-family:var(--mono); font-size:clamp(1.1rem,3vw,1.5rem);
   letter-spacing:.08em; margin-bottom:1rem;
 }
 .story-text{
+  font-family:var(--serif); font-style:italic;
+  font-size:clamp(1.15rem,3vw,1.5rem); line-height:1.6;
+  color:var(--muted);
+}
+.story-video-wrap{ width:100%; margin:0 auto; }
+.story-video{
+  display:block; width:100%;
+  object-fit:contain; background:#000;
+}
+.story-caption{
+  margin-top:1.6rem;
   font-family:var(--serif); font-style:italic;
   font-size:clamp(1.15rem,3vw,1.5rem); line-height:1.6;
   color:var(--muted);

@@ -142,7 +142,7 @@
     body.classList.toggle('lang-en', lang === 'en');
   }
 
-  var savedLang = localStorage.getItem('axon-lang') === 'en' ? 'en' : 'ja';
+  var savedLang = localStorage.getItem('axon-lang') === 'ja' ? 'ja' : 'en';
   applyLang(savedLang);
 
   langToggle.addEventListener('click', function () {
