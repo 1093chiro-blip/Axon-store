@@ -218,4 +218,17 @@
   } else {
     revealTargets.forEach(function (el) { el.classList.add('in-view'); });
   }
+
+  document.querySelectorAll('.story-details').forEach(function (details) {
+    var video = details.querySelector('video');
+    if (!video) return;
+    details.addEventListener('toggle', function () {
+      if (details.open) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        video.pause();
+      }
+    });
+  });
 })();
