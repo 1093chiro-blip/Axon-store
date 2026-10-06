@@ -51,6 +51,14 @@ a{ color:inherit; text-decoration:none; }
 .code-dim{ color:var(--muted); opacity:.55; }
 .code-add{ color:#8fd4a8; opacity:.7; }
 .code-del{ color:#d48f8f; opacity:.7; }
+.code-err{ color:#ff5c5c; opacity:.85; }
+.code-num{ color:#e0c268; opacity:.8; }
+.code-cursor{
+  display:inline-block; width:.55em; height:1em;
+  background:var(--fg); vertical-align:text-bottom;
+  animation:codeCursorBlink .9s steps(1) infinite;
+}
+@keyframes codeCursorBlink{ 50%{ opacity:0; } }
 
 /* ===== ENTRY GATE ===== */
 .gate{
