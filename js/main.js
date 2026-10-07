@@ -239,6 +239,7 @@
           if (other !== details) other.open = false;
         });
         content.classList.add('is-open');
+        content.scrollTop = 0;
         body.classList.add('story-modal-open');
         if (video) {
           var p = video.play();
@@ -262,5 +263,14 @@
     content.addEventListener('click', function (e) {
       if (e.target === content) details.open = false;
     });
+
+    var nextBtn = content.querySelector('.story-next');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        var target = document.getElementById(nextBtn.dataset.next);
+        details.open = false;
+        if (target) target.open = true;
+      });
+    }
   });
 })();
