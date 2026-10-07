@@ -374,6 +374,7 @@ body.story-modal-open{ overflow:hidden; }
   letter-spacing:.2em; text-transform:uppercase;
   color:var(--muted);
 }
+.story-note-meta--gap{ margin-top:1.4rem; }
 .story-note-title{
   font-family:var(--mono); font-weight:700;
   font-size:clamp(1rem,2.6vw,1.3rem);
@@ -421,6 +422,12 @@ body.story-modal-open{ overflow:hidden; }
   font-size:clamp(4rem,16vw,7rem); line-height:1;
   color:var(--fg); margin:1.2rem 0;
 }
+.story-ratio-num{
+  font-family:var(--mono); font-weight:700;
+  font-size:clamp(2.6rem,10vw,4.5rem); line-height:1;
+  color:var(--fg); margin:1.2rem 0;
+}
+.story-ratio-num.story-statement--gap{ margin-top:3.2rem; }
 .story-arrow{
   color:var(--muted); font-size:1.2rem;
 }
