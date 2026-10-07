@@ -406,6 +406,9 @@ body.story-modal-open{ overflow:hidden; }
   letter-spacing:.08em; text-transform:uppercase;
   color:var(--fg); white-space:pre-line; line-height:1.5;
 }
+.story-statement--large{
+  font-size:clamp(1.3rem,3.6vw,1.9rem);
+}
 .story-arrow{
   color:var(--muted); font-size:1.2rem;
 }
