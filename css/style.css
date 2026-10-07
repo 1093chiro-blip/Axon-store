@@ -403,6 +403,7 @@ body.story-modal-open{ overflow:hidden; }
   color:var(--muted); white-space:pre-line;
 }
 .story-caption--final{ margin-top:2.4rem; }
+.story-caption--large{ font-size:clamp(1.4rem,3.8vw,2rem); }
 .story-statement-group{
   display:flex; flex-direction:column; gap:1.2rem;
   margin-top:.4rem;
