@@ -226,15 +226,23 @@
     if (!content) return;
 
     // show the chapter number inside the opened overlay too, since the
-    // "01|CONNECTION" summary label is hidden behind it once open
+    // "01|CONNECTION" summary label is hidden behind it once open -
+    // prefixed onto the first line itself, not a separate small line
     var summaryEl = details.querySelector('summary');
     var innerEl = content.querySelector('.story-details-inner');
     var numMatch = summaryEl && summaryEl.textContent.match(/^\s*(\d+)/);
-    if (numMatch && innerEl) {
-      var numEl = document.createElement('p');
+    if (numMatch && innerEl && innerEl.firstElementChild) {
+      var firstChild = innerEl.firstElementChild;
+      // drop a leading whitespace-only text node (from the HTML
+      // formatting) so the number sits on the same line as the text
+      // instead of wrapping onto its own line under white-space:pre-line
+      while (firstChild.firstChild && firstChild.firstChild.nodeType === 3 && !firstChild.firstChild.textContent.trim()) {
+        firstChild.removeChild(firstChild.firstChild);
+      }
+      var numEl = document.createElement('span');
       numEl.className = 'story-chapter-num';
-      numEl.textContent = numMatch[1];
-      innerEl.insertBefore(numEl, innerEl.firstChild);
+      numEl.textContent = numMatch[1] + '｜';
+      firstChild.insertBefore(numEl, firstChild.firstChild);
     }
 
     // move the overlay content to <body> so its position:fixed is relative

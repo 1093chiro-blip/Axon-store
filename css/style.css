@@ -342,9 +342,9 @@ body.story-modal-open{ overflow:hidden; }
   cursor:pointer;
 }
 .story-chapter-num{
-  font-family:var(--mono); font-size:.78rem;
-  letter-spacing:.3em; color:var(--muted);
-  margin-bottom:1.6rem;
+  font-family:var(--mono); font-weight:700; font-style:normal;
+  letter-spacing:.1em; color:var(--muted);
+  margin-right:.5em;
 }
 .story-label{
   font-family:var(--mono); font-size:clamp(1.1rem,3vw,1.5rem);
