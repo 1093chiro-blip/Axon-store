@@ -358,6 +358,16 @@ body.story-modal-open{ overflow:hidden; }
   font-size:clamp(1.15rem,3vw,1.5rem); line-height:1.6;
   color:var(--muted);
 }
+.story-statement-group{
+  display:flex; flex-direction:column; gap:1.2rem;
+  margin-top:.4rem;
+}
+.story-statement{
+  font-family:var(--mono); font-weight:700;
+  font-size:clamp(1.05rem,2.8vw,1.35rem);
+  letter-spacing:.08em; text-transform:uppercase;
+  color:var(--fg);
+}
 .story-arrow{
   color:var(--muted); font-size:1.2rem;
 }
