@@ -355,6 +355,7 @@ body.story-modal-open{ overflow:hidden; }
   font-size:clamp(1.15rem,3vw,1.5rem); line-height:1.6;
   color:var(--muted); white-space:pre-line;
 }
+.story-text + .story-text{ margin-top:.8rem; }
 .story-video-wrap{ width:100%; margin:0 auto; }
 .story-video{
   display:block; width:100%;
@@ -428,7 +429,12 @@ body.story-modal-open{ overflow:hidden; }
   color:var(--fg); margin:1.2rem 0;
 }
 .story-ratio-num.story-statement--gap{ margin-top:3.2rem; }
+.story-ratio-prefix{
+  font-family:var(--mono); font-weight:700; font-style:normal;
+  color:var(--fg); margin-right:.5em;
+}
 .story-arrow{
+  display:block; margin:1.4rem 0;
   color:var(--muted); font-size:1.2rem;
 }
 .story-next{
