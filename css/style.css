@@ -381,6 +381,14 @@ body.story-modal-open{ overflow:hidden; }
   font-size:clamp(1.05rem,2.8vw,1.35rem); line-height:1.7;
   color:var(--muted); white-space:pre-line;
 }
+.story-flow-diagram{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:.7rem; margin-top:1.8rem;
+  font-family:var(--mono); font-size:.8rem;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:var(--muted);
+}
+.story-flow-arrow{ color:var(--line); }
 .story-caption{
   margin:1.6rem 0;
   font-family:var(--serif); font-style:italic;
