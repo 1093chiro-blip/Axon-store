@@ -219,16 +219,48 @@
     revealTargets.forEach(function (el) { el.classList.add('in-view'); });
   }
 
-  document.querySelectorAll('.story-details').forEach(function (details) {
+  var storyDetails = document.querySelectorAll('.story-details');
+  storyDetails.forEach(function (details) {
     var video = details.querySelector('video');
-    if (!video) return;
+    var content = details.querySelector('.story-details-content');
+    if (!content) return;
+
+    // move the overlay content to <body> so its position:fixed is relative
+    // to the viewport, not to an ancestor section that has its own
+    // transform (any transform, even translateY(0), creates a new
+    // containing block that would otherwise trap position:fixed)
+    body.appendChild(content);
+
+    var closeBtn = content.querySelector('.story-close');
+
     details.addEventListener('toggle', function () {
       if (details.open) {
-        var p = video.play();
-        if (p && p.catch) p.catch(function () {});
+        storyDetails.forEach(function (other) {
+          if (other !== details) other.open = false;
+        });
+        content.classList.add('is-open');
+        body.classList.add('story-modal-open');
+        if (video) {
+          var p = video.play();
+          if (p && p.catch) p.catch(function () {});
+        }
       } else {
-        video.pause();
+        content.classList.remove('is-open');
+        var anyOpen = false;
+        storyDetails.forEach(function (other) { if (other.open) anyOpen = true; });
+        if (!anyOpen) body.classList.remove('story-modal-open');
+        if (video) video.pause();
       }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        details.open = false;
+      });
+    }
+
+    content.addEventListener('click', function (e) {
+      if (e.target === content) details.open = false;
     });
   });
 })();
