@@ -415,6 +415,7 @@ body.story-modal-open{ overflow:hidden; }
   font-size:clamp(1.3rem,3.6vw,1.9rem);
 }
 .story-statement--gap{ margin-top:3.2rem; }
+.story-statement + .story-statement{ margin-top:1.4rem; }
 .story-big-num{
   font-family:var(--mono); font-weight:700;
   font-size:clamp(4rem,16vw,7rem); line-height:1;
