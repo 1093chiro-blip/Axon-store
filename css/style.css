@@ -341,6 +341,11 @@ body.story-modal-open{ overflow:hidden; }
   font-family:var(--mono); font-size:1rem;
   cursor:pointer;
 }
+.story-chapter-num{
+  font-family:var(--mono); font-size:.78rem;
+  letter-spacing:.3em; color:var(--muted);
+  margin-bottom:1.6rem;
+}
 .story-label{
   font-family:var(--mono); font-size:clamp(1.1rem,3vw,1.5rem);
   letter-spacing:.08em; margin-bottom:1rem;

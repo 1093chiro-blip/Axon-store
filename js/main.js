@@ -225,6 +225,18 @@
     var content = details.querySelector('.story-details-content');
     if (!content) return;
 
+    // show the chapter number inside the opened overlay too, since the
+    // "01|CONNECTION" summary label is hidden behind it once open
+    var summaryEl = details.querySelector('summary');
+    var innerEl = content.querySelector('.story-details-inner');
+    var numMatch = summaryEl && summaryEl.textContent.match(/^\s*(\d+)/);
+    if (numMatch && innerEl) {
+      var numEl = document.createElement('p');
+      numEl.className = 'story-chapter-num';
+      numEl.textContent = numMatch[1];
+      innerEl.insertBefore(numEl, innerEl.firstChild);
+    }
+
     // move the overlay content to <body> so its position:fixed is relative
     // to the viewport, not to an ancestor section that has its own
     // transform (any transform, even translateY(0), creates a new
