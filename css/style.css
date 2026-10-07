@@ -315,22 +315,25 @@ body.story-modal-open{ overflow:hidden; }
 .story-details-content{
   display:none;
   position:fixed; inset:0; z-index:220;
-  flex-direction:column;
+  background:var(--bg,#050505);
+  overflow-y:auto;
+}
+.story-details-content.is-open{ display:block; }
+.story-details-inner{
+  min-height:100%; box-sizing:border-box;
+  display:flex; flex-direction:column;
   align-items:center; justify-content:center;
   text-align:center;
-  background:var(--bg,#050505);
   padding:6rem 1.5rem 3rem;
-  overflow-y:auto;
   animation:storyOverlayIn .35s ease;
 }
-.story-details-content.is-open{ display:flex; }
-.story-details-content > *{ max-width:680px; width:100%; }
+.story-details-inner > *{ max-width:680px; width:100%; }
 @keyframes storyOverlayIn{
   from{ opacity:0; }
   to{ opacity:1; }
 }
 .story-close{
-  position:absolute; top:1.4rem; right:1.4rem;
+  position:fixed; top:1.4rem; right:1.4rem; z-index:230;
   width:2.4rem; height:2.4rem;
   display:flex; align-items:center; justify-content:center;
   background:none; border:1px solid var(--line);

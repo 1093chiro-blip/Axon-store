@@ -260,8 +260,9 @@
       });
     }
 
+    var inner = content.querySelector('.story-details-inner');
     content.addEventListener('click', function (e) {
-      if (e.target === content) details.open = false;
+      if (e.target === content || e.target === inner) details.open = false;
     });
 
     var nextBtn = content.querySelector('.story-next');
