@@ -392,7 +392,11 @@ body.story-modal-open{ overflow:hidden; }
   font-family:var(--mono); font-weight:700;
   font-size:clamp(1.05rem,2.8vw,1.35rem);
   letter-spacing:.08em; text-transform:uppercase;
-  color:var(--fg);
+  color:var(--fg); white-space:pre-line; line-height:1.5;
+}
+.story-statement--final{
+  margin-top:2.4rem;
+  font-size:clamp(1.3rem,3.6vw,1.9rem);
 }
 .story-arrow{
   color:var(--muted); font-size:1.2rem;
