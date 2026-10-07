@@ -352,6 +352,10 @@ body.story-modal-open{ overflow:hidden; }
   display:block; width:100%;
   object-fit:contain; background:#000;
 }
+.story-image-wrap{ width:100%; margin:0 auto; }
+.story-image-wrap img{
+  display:block; width:100%; height:auto;
+}
 .story-caption{
   margin:1.6rem 0;
   font-family:var(--serif); font-style:italic;
