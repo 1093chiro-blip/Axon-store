@@ -418,6 +418,13 @@ body.story-modal-open{ overflow:hidden; }
 }
 .story-statement--gap{ margin-top:3.2rem; }
 .story-statement + .story-statement{ margin-top:1.4rem; }
+.story-statement-sub{
+  display:block;
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  text-transform:none; letter-spacing:normal;
+  font-size:.62em; color:var(--muted);
+  margin-top:.6rem;
+}
 .story-big-num{
   font-family:var(--mono); font-weight:700;
   font-size:clamp(4rem,16vw,7rem); line-height:1;
