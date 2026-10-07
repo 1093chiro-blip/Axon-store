@@ -348,7 +348,7 @@ body.story-modal-open{ overflow:hidden; }
 .story-text{
   font-family:var(--serif); font-style:italic;
   font-size:clamp(1.15rem,3vw,1.5rem); line-height:1.6;
-  color:var(--muted);
+  color:var(--muted); white-space:pre-line;
 }
 .story-video-wrap{ width:100%; margin:0 auto; }
 .story-video{
@@ -409,6 +409,7 @@ body.story-modal-open{ overflow:hidden; }
 .story-statement--large{
   font-size:clamp(1.3rem,3.6vw,1.9rem);
 }
+.story-statement--gap{ margin-top:3.2rem; }
 .story-arrow{
   color:var(--muted); font-size:1.2rem;
 }
