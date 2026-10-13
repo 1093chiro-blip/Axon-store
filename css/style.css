@@ -74,6 +74,13 @@ a{ color:inherit; text-decoration:none; }
   object-fit:cover;
   cursor:pointer;
 }
+@media (max-width:700px){
+  /* the loading video is landscape with text baked into the frame;
+     cover crops that text off the sides on a narrow portrait screen,
+     so switch to contain (letterboxed, blends with the near-black
+     video background) to keep the whole frame visible */
+  .gate-video{ object-fit:contain; }
+}
 .gate-video::-webkit-media-controls,
 .hero-bg-video::-webkit-media-controls{
   display:none !important;
