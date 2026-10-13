@@ -221,7 +221,7 @@
 
   var storyDetails = document.querySelectorAll('.story-details');
   storyDetails.forEach(function (details) {
-    var video = details.querySelector('video');
+    var videos = details.querySelectorAll('video');
     var content = details.querySelector('.story-details-content');
     if (!content) return;
 
@@ -261,16 +261,16 @@
         content.classList.add('is-open');
         content.scrollTop = 0;
         body.classList.add('story-modal-open');
-        if (video) {
+        videos.forEach(function (video) {
           var p = video.play();
           if (p && p.catch) p.catch(function () {});
-        }
+        });
       } else {
         content.classList.remove('is-open');
         var anyOpen = false;
         storyDetails.forEach(function (other) { if (other.open) anyOpen = true; });
         if (!anyOpen) body.classList.remove('story-modal-open');
-        if (video) video.pause();
+        videos.forEach(function (video) { video.pause(); });
       }
     });
 
