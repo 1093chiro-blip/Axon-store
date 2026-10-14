@@ -1,6 +1,14 @@
 (function () {
   var body = document.body;
 
+  // a saved/reopened URL can carry a #connect (or similar) hash from a
+  // past visit (e.g. after tapping a nav link), and mobile Safari also
+  // restores the previous scroll position on reopen - either would skip
+  // the opening AXOn world entirely once the gate's scroll-lock lifts
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
   function forcePlayVideos() {
     document.querySelectorAll('video[autoplay]').forEach(function (v) {
       var p = v.play();
@@ -115,6 +123,10 @@
     body.classList.add('gate-opened');
     gate.classList.add('gate-hidden');
     forcePlayVideos();
+    // the restored scroll position only becomes visible once this unlocks
+    // the body, so re-assert the top instantly (bypassing the global
+    // smooth-scroll) right as the lock lifts
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }
 
   gateVideo.addEventListener('ended', openGate);
