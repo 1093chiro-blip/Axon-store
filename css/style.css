@@ -837,6 +837,28 @@ body.story-modal-open{ overflow:hidden; }
 .sns-link:hover{ background:var(--fg); color:var(--bg); }
 .sns-icon{ width:18px; height:18px; fill:currentColor; flex-shrink:0; }
 
+/* ===== JOURNAL ===== */
+.journal-grid{
+  margin-top:2.5rem;
+  display:flex; flex-wrap:wrap; gap:1px; background:var(--line); border:1px solid var(--line);
+}
+.journal-card{ flex:1 1 220px; background:var(--bg); }
+.journal-card-summary{
+  display:flex; align-items:baseline; gap:1rem;
+  padding:1.6rem; cursor:pointer; list-style:none;
+  transition:background .25s, color .25s;
+}
+.journal-card-summary::-webkit-details-marker{ display:none; }
+.journal-card-num{
+  font-family:var(--mono); font-weight:700; font-size:.85rem;
+  color:var(--muted); transition:color .25s;
+}
+.journal-card-title{
+  font-family:var(--serif); font-size:1.1rem;
+}
+.journal-card-summary:hover{ background:var(--fg); color:var(--bg); }
+.journal-card-summary:hover .journal-card-num{ color:var(--bg); }
+
 /* ===== FOOTER ===== */
 .site-footer{
   padding:3rem var(--gap) 2.4rem;
