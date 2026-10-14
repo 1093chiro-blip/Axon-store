@@ -859,6 +859,21 @@ body.story-modal-open{ overflow:hidden; }
 .journal-card-summary:hover{ background:var(--fg); color:var(--bg); }
 .journal-card-summary:hover .journal-card-num{ color:var(--bg); }
 
+.journal-article{
+  width:100%; text-align:left; margin-top:2.4rem;
+}
+.journal-article p{
+  font-family:var(--serif); font-size:1.05rem; line-height:1.9;
+  color:var(--muted); margin:0 0 1.4rem;
+}
+.journal-article p:last-child{ margin-bottom:0; }
+.journal-article strong{ color:var(--fg); font-weight:600; }
+.journal-theme-heading{
+  font-family:var(--mono); font-weight:700; font-size:.95rem;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--fg); margin:3rem 0 1.4rem;
+}
+
 /* ===== FOOTER ===== */
 .site-footer{
   padding:3rem var(--gap) 2.4rem;
