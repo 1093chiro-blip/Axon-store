@@ -96,6 +96,7 @@
         seg.i += 1;
         seg.el.textContent = seg.text.slice(0, seg.i);
         seg.el.parentNode.insertBefore(cursor, seg.el.nextSibling);
+        codeIntro.scrollTop = codeIntro.scrollHeight;
         setTimeout(tick, 9);
       } else {
         segIndex += 1;
