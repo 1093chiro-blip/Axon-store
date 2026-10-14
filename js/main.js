@@ -14,12 +14,9 @@
   var codeIntroDone = false;
   var gateVideo = document.getElementById('gateVideo');
 
-  var codeIntroHiddenAt = 0;
-
   function hideCodeIntro() {
     if (codeIntroDone) return;
     codeIntroDone = true;
-    codeIntroHiddenAt = Date.now();
     codeIntro.classList.add('code-intro-hidden');
     forcePlayVideos();
     // gate-video has no autoplay attribute (so it can't finish playing
@@ -28,8 +25,6 @@
     var p = gateVideo.play();
     if (p && p.catch) p.catch(function () {});
   }
-
-  codeIntro.addEventListener('click', hideCodeIntro);
 
   var CODE_LINES = [
     [{ t: '$ axon --build', c: 'dim' }],
@@ -122,12 +117,6 @@
   }
 
   gateVideo.addEventListener('ended', openGate);
-  gate.addEventListener('click', function () {
-    // ignore a tap that's really the tail end of the code-intro skip tap,
-    // so one tap can't fall through both overlays at once
-    if (Date.now() - codeIntroHiddenAt < 600) return;
-    openGate();
-  });
 
   var langToggle = document.getElementById('langToggle');
   var navToggle = document.getElementById('navToggle');
