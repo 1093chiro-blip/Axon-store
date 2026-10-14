@@ -232,7 +232,8 @@
     // they're excluded from this.
     var summaryEl = details.querySelector('summary');
     var innerEl = content.querySelector('.story-details-inner');
-    var numMatch = !details.classList.contains('journal-card') && summaryEl && summaryEl.textContent.match(/^\s*(\d+)/);
+    var isJournalEntry = details.classList.contains('journal-card') || details.classList.contains('journal-page');
+    var numMatch = !isJournalEntry && summaryEl && summaryEl.textContent.match(/^\s*(\d+)/);
     if (numMatch && innerEl && innerEl.firstElementChild) {
       var firstChild = innerEl.firstElementChild;
       // drop a leading whitespace-only text node (from the HTML

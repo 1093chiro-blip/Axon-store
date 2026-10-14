@@ -871,8 +871,11 @@ body.story-modal-open{ overflow:hidden; }
 .journal-theme-heading{
   font-family:var(--mono); font-weight:700; font-size:.95rem;
   letter-spacing:.12em; text-transform:uppercase;
-  color:var(--fg); margin:3rem 0 1.4rem;
+  color:var(--fg); margin:0 0 1.4rem;
 }
+/* chained theme pages are reached only via the next-button, not
+   shown as their own card in the grid */
+.journal-page{ display:none; }
 
 /* ===== FOOTER ===== */
 .site-footer{
