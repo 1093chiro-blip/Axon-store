@@ -877,6 +877,24 @@ body.story-modal-open{ overflow:hidden; }
    shown as their own card in the grid */
 .journal-page{ display:none; }
 
+.journal-ref-list{
+  width:100%; display:flex; flex-direction:column; gap:1.6rem;
+}
+.journal-ref{ display:flex; gap:.9rem; align-items:baseline; }
+.journal-ref-num{
+  font-family:var(--mono); font-size:.75rem; color:var(--muted);
+  flex-shrink:0; width:2.2ch;
+}
+.journal-ref-body{ flex:1; }
+.journal-ref-title{
+  font-family:var(--serif); font-style:italic; font-size:1.05rem;
+  color:var(--fg); line-height:1.5; margin:0 0 .35rem;
+}
+.journal-ref-meta{
+  font-family:var(--mono); font-size:.72rem; color:var(--muted);
+  letter-spacing:.03em; line-height:1.6; margin:0;
+}
+
 /* ===== FOOTER ===== */
 .site-footer{
   padding:3rem var(--gap) 2.4rem;
