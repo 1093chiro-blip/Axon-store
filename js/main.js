@@ -227,10 +227,12 @@
 
     // show the chapter number inside the opened overlay too, since the
     // "01|CONNECTION" summary label is hidden behind it once open -
-    // prefixed onto the first line itself, not a separate small line
+    // prefixed onto the first line itself, not a separate small line.
+    // Journal cards handle their own "AXON JOURNAL / 001" labeling, so
+    // they're excluded from this.
     var summaryEl = details.querySelector('summary');
     var innerEl = content.querySelector('.story-details-inner');
-    var numMatch = summaryEl && summaryEl.textContent.match(/^\s*(\d+)/);
+    var numMatch = !details.classList.contains('journal-card') && summaryEl && summaryEl.textContent.match(/^\s*(\d+)/);
     if (numMatch && innerEl && innerEl.firstElementChild) {
       var firstChild = innerEl.firstElementChild;
       // drop a leading whitespace-only text node (from the HTML
