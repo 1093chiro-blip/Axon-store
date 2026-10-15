@@ -372,11 +372,14 @@ body.story-modal-open{ overflow:hidden; }
 }
 .story-image-wrap--wide{ max-width:min(94vw, 1224px); }
 .story-video-grid{
-  display:flex; flex-wrap:wrap; justify-content:center;
+  display:flex; flex-wrap:nowrap; justify-content:center;
   gap:1rem;
 }
 .story-video-grid-item{
-  flex:1 1 220px; max-width:380px;
+  flex:1 1 0; min-width:0; max-width:380px;
+}
+@media (max-width:640px){
+  .story-video-grid{ gap:.5rem; }
 }
 .story-video-grid-item .story-video{
   width:100%; border:1px solid var(--line);
