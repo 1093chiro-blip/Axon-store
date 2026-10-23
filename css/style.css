@@ -135,7 +135,10 @@ p{ margin:0; }
 }
 .nav-shop-link:hover{ background:var(--fg); color:var(--bg); }
 
-.header-actions{ display:flex; align-items:center; gap:1.1rem; }
+.header-actions{
+  display:flex; align-items:center; gap:1.1rem;
+  position:relative; z-index:60;
+}
 
 .lang-toggle{
   background:none; border:1px solid var(--line-strong); color:var(--fg);

@@ -165,6 +165,13 @@
     });
   });
 
+  document.addEventListener('click', function (e) {
+    if (!mainNav.classList.contains('open')) return;
+    if (mainNav.contains(e.target) || navToggle.contains(e.target)) return;
+    mainNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+
   var accessForm = document.getElementById('accessForm');
   var accessStatus = document.getElementById('accessStatus');
   if (accessForm) {
