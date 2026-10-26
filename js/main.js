@@ -6,6 +6,20 @@
   // restores the previous scroll position on reopen - either would skip
   // the opening AXOn world entirely once the gate's scroll-lock lifts
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+
+  // links from outside (e.g. note) can name a journal entry with
+  // ?journal=002 - remember it so the entry opens once the opening
+  // AXOn world has played, then drop it from the URL so a reload
+  // starts from the top as usual
+  var journalParam = new URLSearchParams(location.search).get('journal');
+  var journalNum = journalParam && /^\d{1,3}$/.test(journalParam) ? parseInt(journalParam, 10) : 0;
+  var linkedJournalId = journalNum > 0 ? 'journal-' + (journalNum < 10 ? '0' : '') + journalNum : null;
+  if (journalParam !== null) {
+    var cleanParams = new URLSearchParams(location.search);
+    cleanParams.delete('journal');
+    var cleanQuery = cleanParams.toString();
+    history.replaceState(null, '', location.pathname + (cleanQuery ? '?' + cleanQuery : ''));
+  }
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
@@ -127,6 +141,16 @@
     // the body, so re-assert the top instantly (bypassing the global
     // smooth-scroll) right as the lock lifts
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    openLinkedJournal();
+  }
+
+  function openLinkedJournal() {
+    var entry = linkedJournalId && document.getElementById(linkedJournalId);
+    if (!entry) return;
+    var section = document.getElementById('journal');
+    if (section) section.scrollIntoView({ behavior: 'instant', block: 'start' });
+    // let the gate fade start before the article overlay opens on top
+    setTimeout(function () { entry.open = true; }, 400);
   }
 
   gateVideo.addEventListener('ended', openGate);
