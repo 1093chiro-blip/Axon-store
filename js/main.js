@@ -32,6 +32,17 @@
     // explicitly now that it's actually visible
     var p = gateVideo.play();
     if (p && p.catch) p.catch(function () {});
+
+    // safety net: some in-app browsers (e.g. Instagram's) silently block
+    // the gate video from playing even when muted, which would otherwise
+    // strand visitors on the loading screen forever now that tapping no
+    // longer skips it. If it hasn't finished well past its own length,
+    // fall back to tap-to-continue.
+    setTimeout(function () {
+      if (gateOpened) return;
+      gate.classList.add('gate-stuck');
+      gate.addEventListener('click', openGate);
+    }, 12000);
   }
 
   var CODE_LINES = [
