@@ -912,6 +912,8 @@ body.story-modal-open{ overflow:hidden; }
   font-family:var(--mono); font-size:.72rem; color:var(--muted);
   letter-spacing:.03em; line-height:1.6; margin:0;
 }
+.journal-ref-meta a{ text-decoration:underline; text-underline-offset:2px; }
+.journal-ref-meta a:hover{ color:var(--fg); }
 
 /* ===== FOOTER ===== */
 .site-footer{
