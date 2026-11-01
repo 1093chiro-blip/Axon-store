@@ -1,10 +1,19 @@
 (function () {
   var body = document.body;
 
-  // a saved/reopened URL can carry a #connect (or similar) hash from a
-  // past visit (e.g. after tapping a nav link), and mobile Safari also
-  // restores the previous scroll position on reopen - either would skip
-  // the opening AXOn world entirely once the gate's scroll-lock lifts
+  // a deep link to a specific chapter/journal entry (e.g. #journal-03)
+  // opens that overlay once the gate lifts; any other hash is just a
+  // saved/reopened URL from a past visit (e.g. after tapping a nav link)
+  var deepLinkId = null;
+  if (location.hash) {
+    var deepLinkTarget = document.getElementById(location.hash.slice(1));
+    if (deepLinkTarget && deepLinkTarget.classList.contains('story-details')) {
+      deepLinkId = deepLinkTarget.id;
+    }
+  }
+  // mobile Safari also restores the previous scroll position on reopen -
+  // either case would otherwise skip the opening AXOn world entirely once
+  // the gate's scroll-lock lifts
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -138,6 +147,10 @@
     // the body, so re-assert the top instantly (bypassing the global
     // smooth-scroll) right as the lock lifts
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (deepLinkId) {
+      var deepLinkEl = document.getElementById(deepLinkId);
+      if (deepLinkEl) deepLinkEl.open = true;
+    }
   }
 
   gateVideo.addEventListener('ended', openGate);
