@@ -36,15 +36,7 @@
     codeIntroDone = true;
     codeIntro.classList.add('code-intro-hidden');
     forcePlayVideos();
-
-    // the gate and hero videos are paused for now (not autoplaying), so
-    // the gate always relies on the tap-to-continue fallback below to
-    // advance rather than the video's 'ended' event
-    setTimeout(function () {
-      if (gateOpened) return;
-      gate.classList.add('gate-stuck');
-      gate.addEventListener('click', openGate);
-    }, 12000);
+    openGate();
   }
 
   var CODE_LINES = [
@@ -88,10 +80,6 @@
     [{ t: '> AXOn — recovery × identity.', c: 'add' }]
   ];
 
-  // the code-intro typing animation is paused for now; skip straight past
-  // it instead of running it
-  hideCodeIntro();
-
   var gate = document.getElementById('gate');
   var gateOpened = false;
 
@@ -112,6 +100,10 @@
   }
 
   gateVideo.addEventListener('ended', openGate);
+
+  // skip straight past the code-intro/gate sequence and open directly on
+  // the hero
+  hideCodeIntro();
 
   var langToggle = document.getElementById('langToggle');
   var navToggle = document.getElementById('navToggle');
