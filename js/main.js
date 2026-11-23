@@ -88,44 +88,9 @@
     [{ t: '> AXOn — recovery × identity.', c: 'add' }]
   ];
 
-  (function typeCodeIntro() {
-    var segments = [];
-    CODE_LINES.forEach(function (line, li) {
-      if (li > 0) codeIntroBlock.appendChild(document.createTextNode('\n'));
-      line.forEach(function (seg) {
-        var span = document.createElement('span');
-        span.className = 'code-' + seg.c;
-        codeIntroBlock.appendChild(span);
-        segments.push({ el: span, text: seg.t, i: 0 });
-      });
-    });
-
-    var cursor = document.createElement('span');
-    cursor.className = 'code-cursor';
-    codeIntroBlock.appendChild(cursor);
-
-    var segIndex = 0;
-    function tick() {
-      if (codeIntroDone) return;
-      if (segIndex >= segments.length) {
-        cursor.parentNode && cursor.parentNode.removeChild(cursor);
-        setTimeout(hideCodeIntro, 500);
-        return;
-      }
-      var seg = segments[segIndex];
-      if (seg.i < seg.text.length) {
-        seg.i += 1;
-        seg.el.textContent = seg.text.slice(0, seg.i);
-        seg.el.parentNode.insertBefore(cursor, seg.el.nextSibling);
-        codeIntro.scrollTop = codeIntro.scrollHeight;
-        setTimeout(tick, 9);
-      } else {
-        segIndex += 1;
-        tick();
-      }
-    }
-    tick();
-  })();
+  // the code-intro typing animation is paused for now; skip straight past
+  // it instead of running it
+  hideCodeIntro();
 
   var gate = document.getElementById('gate');
   var gateOpened = false;
